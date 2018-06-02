@@ -1,0 +1,80 @@
+<html>
+  <div class="bg grey lighten-5">
+  
+    <!-- header component -->
+    <app-header></app-header>
+  
+  
+    <form [formGroup]="formGroup" (ngSubmit)="updateUser(formGroup.value)">
+  
+      <div class="row container">
+        <div class="col s12 m12 l12">
+          <div class="card">
+            <div class="card-content center">
+  
+              <div class="row">
+  
+                <!-- Button Arrow Back-->
+                <div class="col s4 left-align">
+                  <a class="btn-flat" (click)="openPage(ROUTER_DASHBOARD);">
+                    <i class="btn-cancel material-icons">close</i>
+                  </a>
+                </div>
+  
+                <!-- Title -->
+                <div class="col s4">
+                  <span class="card-title">Editar Conta</span>
+                </div>
+  
+                <!-- Button Confirm-->
+                <div class="col s4 right-align">
+                  <a class="btn-flat">
+                    <i class="btn-check material-icons" (click)="updateUser(formGroup.value)">check</i>
+                  </a>
+  
+                </div>
+              </div>
+  
+              <!-- Form email -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="email" formControlName="email" placeholder="E-mail" class="validate" id="email">
+                </div>
+              </div>
+  
+              <!-- Form name -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" formControlName="name" placeholder="Nome completo" class="validate" id="name">
+                </div>
+              </div>
+  
+              <!-- Form company -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" formControlName="company" placeholder="Empresa" class="validate" id="company">
+                </div>
+              </div>
+              <!-- Form password -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="password" formControlName="password" placeholder="Senha" class="validate" id="password">
+                </div>
+              </div>
+              <!-- Form description -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" formControlName="description" placeholder="Descrição" id="description">
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </form>
+  
+  </div>
+  
+  </html>

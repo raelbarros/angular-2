@@ -1,0 +1,194 @@
+<html>
+<div class="bg grey lighten-5">
+
+  <app-header></app-header>
+
+  <div class="row container">
+
+    <div class="col s1 m3 l3">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="col s11 m9 l9">
+
+      <!-- title page -->
+      <div class="page-title">
+        <h3 class="title-page center">Participantes</h3>
+      </div>
+
+      <!-- inserir os botões nessa DIV -->
+      <div class="buttons-top">
+        <!-- btn add -->
+        <div class="btn-add left-align">
+          <button class="btn blue darken-3 waves-effect waves-light" (click)="openPage(ROUTER_CREATE_ATTENDEE);">Adicionar</button>
+          <button data-target="modal1" class="btn blue darken-3 modal-trigger" (click)="openModal()">Importar</button>
+          <button data-target="modal1" class="btn blue darken-3 modal-trigger" (click)="exportFileAttendees()">Exportar</button>
+          <button data-target="modal2" class="btn blue darken-3 modal-trigger" (click)="openModal()">Grupo</button>
+        </div>
+      </div>
+
+      <!-- Modal 1 Structure -->
+
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title center">Importar Dados</h4>
+          </div>
+          <div class="modal-body">
+
+            <!-- button download template -->
+            <div id="btn-template" class="center">
+              <p>Caso tenha dúvidas em relação a estrutura de importação, baixe nosso template em Excel para auxilia-lo.</p>
+              <a class="btn light-blue darken-3" (click)="exportFileTemplate()">Baixar Template</a>
+            </div>
+
+            <div class="center">
+              <span>ou então...</span>
+            </div>
+
+            <!-- button choose file -->
+            <div class="file-field input-field center">
+
+              <div class="btn-flat blue darken-4 btn-choose">
+                <span>Selecione um arquivo</span>
+                <input type="file" (change)="onFileChange($event)" multiple="false">
+              </div>
+              <div class="file-path-wrapper">
+        
+                <input class="file-path validate" (change)="exportFileTemplate()" type="text">
+              </div>
+
+            </div>
+            <div id="errors-xlsx">
+              <ul class="collection" *ngIf="theError">
+                <li class="collection-item red lighten-2 the-error">Dados não importados, identificamos nomes ou e-mails incorretos nas células:</li>
+                <br>
+                <label class="wrong-text">{{messageErrors}}</label>
+              </ul>
+            </div>
+
+            <div class="center">
+              <button id="btnSave" class="btn green waves-effect waves-light" (click)="importAttendees()">Salvar</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Finish Modal Structure -->
+
+      <!-- Modal 2 Structure -->
+
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <form [formGroup]="formGroup" (ngSubmit)="createTrack(formGroup.value)">
+            <div class="modal-header">
+              <h4 class="modal-title center">Grupo de Participantes</h4>
+            </div>
+            <div class="modal-body">
+              <input placeholder="Nome do grupo" id="group_name" type="text" class="validate" formControlName="group_name">
+              <span>Adicione novos grupos e clique no "+" para adicionar subgrupos, reorganize a ordem e altere a cor de cada grupo.</span>
+
+              <p>
+                <input placeholder="Descrição do grupo" id="group_description" type="text" class="validate" formControlName="group_description">
+                <button id="btnCreate" class="btn green waves-effect waves-light">Criar</button>
+
+                <div class="groups">
+                  <ul class="collapsible" data-collapsible="accordion" *ngFor="let track of tracks;">
+                    <li>
+                      <div class="collapsible-header">
+                        <div class="align-icons">
+                          <label>{{track.name}}</label>
+                          <a class="btn btn-link" (click)="removeTrack(track);" >
+                            <i class="material-icons red-text">delete</i>
+                          </a>
+                         <!--<a href="#!" class="secondary-content">
+                            <i class="material-icons green-text">add</i>
+                          </a>
+                          <a href="#!" class="secondary-content">
+                            <i class="material-icons blue-text">color_lens</i>
+                          </a> --> 
+                        </div>
+                      </div>
+                      
+                      <!--Sub-grupos-->
+                      <div class="collapsible-body">
+                        <ul class="collection">
+                          <li class="collection-item">Grupo B3App
+
+                            <a href="#!" class="secondary-content">
+                              <i class="material-icons red-text">delete</i>
+                            </a>
+
+                          </li>
+                          <li class="collection-item">Grupo Mente Turbinada
+
+                            <a href="#!" class="secondary-content">
+                              <i class="material-icons red-text">delete</i>
+                            </a>
+
+                          </li>
+                          <li class="collection-item">Grupo C
+
+                            <a href="#!" class="secondary-content">
+                              <i class="material-icons red-text">delete</i>
+                            </a>
+
+                          </li>
+                          <li class="collection-item">Grupo D
+
+                            <a href="#!" class="secondary-content">
+                              <i class="material-icons red-text">delete</i>
+                            </a>
+                          </li>
+
+                          <li class="collection-item">Grupo E
+
+                            <a href="#!" class="secondary-content">
+                              <i class="material-icons red-text">delete</i>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </div> 
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Finish Modal Structure -->
+
+      <hr>
+      <div class="content">
+        <div class="row">
+          <div class="col s12 m8 l6 offset-m2 offset-l13" *ngFor="let attendee of attendeesEvent; let i = index">
+            <ul class="collection left-align">
+              <li class="collection-item avatar">
+                <img src="https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png" id="img-profile" class="circle responsive-img">
+                <a (click)="openPageInfo(ROUTER_EDIT_ATTENDEE, i);" class="secondary-content">
+                  <i class="material-icons btn-edit">create</i>
+                </a>
+                <span class="title">{{attendee.name}}</span>
+                <div *ngFor="let group of attendeesEvent[i].group">
+                    <p class="attendee-infos">{{group}}</p>
+              </div>
+                <!-- <p class="attendee-infos">{{attendee.title}}
+                  <br> {{attendee.company}}
+                  <br> {{attendee.email}}</p> -->
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</html>

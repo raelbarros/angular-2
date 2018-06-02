@@ -1,0 +1,146 @@
+html {
+  background: #fafafa;
+  width: auto;
+  height: 100%;
+}
+
+.bg {
+  width: auto;
+  min-height: 100vh;
+}
+
+.card {
+  position: relative;
+}
+
+label {
+  color: rgb(107, 107, 107);
+  font-size: 1.0em;
+}
+
+.content-text {
+  font-size: 0.9em;
+  padding-top: 10px;
+  color: rgb(124, 124, 124)!important;
+}
+
+.buttons-top{
+  position: relative;
+  width: auto;
+  text-align: center;
+
+}
+
+button{
+  padding: 0 0.5rem;
+}
+
+.content{
+  
+  padding: 10px;
+  margin: auto auto auto auto;
+  height: 100vw;
+}
+
+.card-title {
+  position: absolute;
+  top: 12%;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: rgb(54, 54, 54);
+}
+
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  #container {
+    padding-left: 0px;
+  }
+}
+
+.btnFile:hover {
+  background: #0b7dda;
+}
+
+#btn-template {
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+.btn-choose {
+  margin-top: 4%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  padding: 0 0.5rem;
+  color: #fff;
+}
+
+#btn-save {
+  margin-top: 9%;
+}
+
+button {
+  margin-bottom: 10px;
+}
+
+.modal {
+  min-height: 25%;
+  min-width: 35%;
+  overflow-y: hidden;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.page-title {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.title-page {
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+}
+
+#btnCreate{
+  float: right;
+  
+}
+.groups{
+  margin-top: 10%;
+}
+
+.align-icons {
+  width: 100vh;
+  float: right;
+}
+
+.collapsible-header{ 
+  background: #eceff1;
+
+}
+div.collapsible-body{
+  background: #536dfe;
+}
+
+#errors-xlsx {
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.the-error {
+  font-weight: 400;
+  font-size: 1em;
+  color: white;
+}
+
+.wrong-text {
+  color: red;
+  font-weight: 600;
+  font-size: 1.2em;
+}

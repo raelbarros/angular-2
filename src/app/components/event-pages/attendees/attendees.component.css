@@ -1,0 +1,106 @@
+html {
+    background: #fafafa;
+    width: auto;
+    height: 100%;
+  }
+  
+  .bg {
+    width: auto;
+    min-height: 100vh;
+  }
+
+.page-title {
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.title-page {
+    font-weight: bold;
+}
+
+button{
+    padding: 0 0.5rem;
+        margin-bottom: 10px;
+}
+
+.content {
+    text-align: center;
+    padding-bottom: 10px;
+    margin: auto auto auto auto;
+    height: 100vw;
+}
+
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+}
+
+#btn-template{
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.btn-choose {
+    margin-top: 4%;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    padding: 0 0.5rem;
+    color: #fff;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.attendee-infos {
+    font-size: 1em;
+}
+
+.material-icons {
+    font-size: 20px;
+    color: gray;
+}
+
+#btnCreate{
+    float: right;
+    
+}
+.groups{
+    margin-top: 10%;
+}
+
+.collapsible-header{ 
+    background: #eceff1;
+    
+}
+div.collapsible-body{
+    background: #536dfe;
+}
+.icons{
+    float: right;
+}
+
+.align-icons {
+    width: 100vh;
+    float: right;
+  }
+
+  #errors-xlsx {
+    margin-top: 2vh;
+    text-align: center;
+}
+
+.the-error {
+    font-weight: 400;
+    font-size: 1em;
+    color: white;
+}
+
+.wrong-text {
+    color: red;
+    font-weight: 600;
+    font-size: 1.2em;
+}

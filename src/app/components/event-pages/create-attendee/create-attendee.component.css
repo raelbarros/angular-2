@@ -1,0 +1,95 @@
+html {
+  background: #fafafa;
+  width: auto;
+  height: 100%;
+}
+
+.bg {
+  width: auto;
+  min-height: 100vh;
+}
+
+.separator {
+  padding-left: 1%;
+  background: #01579b;
+  color: #fff;
+}
+
+.page-footer {
+  width: 92%;
+  height: 2%;
+  text-align: center;
+}
+
+.material-icons {
+  margin-top: 1.2%;
+  font-size: 20px;
+  color: rgb(61, 61, 61);
+}
+
+.material-icons.active {
+  color: #01579b;
+}
+
+.row .input-field input:focus {
+  border-bottom: 1px solid #01579b !important;
+  box-shadow: 0 1px 0 0 #01579b !important
+}
+
+.row .input-field textarea:focus {
+	border-bottom: 1px solid #01579b !important;
+	box-shadow: 0 1px 0 0 #01579b !important
+}
+
+.card-action {
+  border: none;
+}
+
+.content{
+  text-align: center;
+  /* background-color: white; */
+  margin: 3% 8% 0 0; 
+  padding-bottom: 3%;
+}
+
+.section-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.page-title {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.title-page {
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-small {
+  height: 22px;
+  line-height: 24px;
+  font-size: 11px;
+  font-size: 10px;
+}
+
+.file-field {
+  margin-top: -5vh;
+  margin-left: 6vh;
+  width: 30vh;
+}
+
+.file-path-wrapper {
+  margin-top: -1.7vh;
+}
+
+.avatar {
+  margin: 1% 0 0 5%;
+}
+
+.max-avatar-text {
+  text-align: left;
+  font-size: 11px;
+  font-style: italic;
+}

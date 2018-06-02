@@ -1,0 +1,141 @@
+<html>
+<div class="bg grey lighten-5">
+
+  <app-header></app-header>
+
+  <div class="row container">
+    <div class="col s0 m0 l3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <!-- <div class="input-field col m6">
+      <input id="name-add-speaker" type="text" [(ngModel)]="name">
+      <label for="name-add-speaker">Nome</label>
+    </div>
+
+    <div class="input-field col m6">
+      <input id="email-add-speaker" type="text" [(ngModel)]="email">
+      <label for="email-add-speaker">Email</label>
+    </div>
+
+    <div class="col m6 center-align">
+      <button (click)="insertSpeaker()" class="waves-effect waves-light btn">Adicionar</button>
+    </div>
+
+  <div class="col m6 center-align">
+    <ul>
+      <li *ngFor="let speaker of speakersList"><label>{{speaker.name}}</label>, <label>{{speaker.email}}</label></li>
+    </ul>
+  </div> -->
+    <div class="col s12 m12 l9">
+      <!-- title page -->
+      <div class="page-title">
+        <h3 class="title-page">Novo Palestrante</h3>
+      </div>
+
+      <div class="content card col s12 m12 l12">
+
+        <!-- title section -->
+        <div class="section-title">
+          <h5 class="title-page center">Informações Básicas</h5>
+        </div>
+
+        <form [formGroup]="formSpeaker" (ngSubmit)="updateProfile(formSpeaker.value);">
+
+
+          <!-- <p class="separator left-align">Detalhes Basicos</p> -->
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input type="text" formControlName="email" placeholder="E-mail">
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" formControlName="name" placeholder="Nome do Palestrante">
+          </div>
+
+          <ul>
+            <li class="collection-item avatar left-align">
+              <img src="https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png" alt="" class="circle img-responsive"
+                width="7%">
+              <div class="file-field input-field">
+                  <p class="max-avatar-text">Tamanho máximo 1mb (.jpg ou .png)</p>
+                <div class="btn blue darken-3 waves-effect waves-light btn btn-small">
+                  <span>Selecionar Arquivo</span>
+                  <input class="teste" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <!-- <p class="separator left-align">Palestrante</p> -->
+          <div class="input-field">
+            <i class="material-icons prefix">location_city</i>
+            <input type="text" formControlName="company" placeholder="Empresa">
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">work</i>
+            <input type="text" formControlName="title" placeholder="Cargo">
+          </div>
+          <div class="input-field">
+            <app-ngx-editor [placeholder]="'Descrição'" [spellcheck]="true" formControlName="description"></app-ngx-editor>
+          </div>
+
+          <div class="section-title">
+            <h5 class="title-page center">Redes Sociais</h5>
+          </div>
+          <div class="contatos">
+            <div class="input-field">
+              <i class="material-icons prefix">link</i>
+              <input type="url" formControlName="website" placeholder="Website">
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">link</i>
+              <input type="url" formControlName="facebook" placeholder="Facebook">
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">link</i>
+              <input type="url" formControlName="instagram" placeholder="Instagram">
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">link</i>
+              <input type="url" formControlName="twitter" placeholder="Twitter">
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">link</i>
+              <input type="url" formControlName="linkedin" placeholder="Linkedin">
+            </div>
+          </div>
+
+          <div class="card-action right-align">
+            <button type="submit" class="green waves-effect waves-light btn" onclick="Materialize.toast('Adicionado com sucesso!', 3000, 'rounded')"
+              value="Submit">Adicionar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- <div class="content card col s12 m12 l12">
+      </div> -->
+
+      <!-- <div class="content card col s12 m12 l12">
+
+        <div class="section-title">
+          <h5 class="title-page center">Documento Adicional</h5>
+        </div>
+
+        <div class="input-field">
+          <i class="material-icons prefix">info</i>
+          <input type="text" FormControlName="portfolio" placeholder="Nome" disabled>
+        </div>
+        <div class="input-field">
+          <i class="material-icons prefix">link</i>
+          <input type="url" FormControlName="linkPortfolio" placeholder="Link" disabled>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+</div>
+
+</html>

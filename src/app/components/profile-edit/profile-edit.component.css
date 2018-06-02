@@ -1,0 +1,44 @@
+html {
+    background: #fafafa;
+    width: auto;
+    height: 100%;
+}
+
+.bg {
+    width: auto;
+    height: 100vh;
+}
+
+.avatar {
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.page-title {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .title-page {
+    font-weight: bold;
+    text-align: center;
+  }
+
+.circle {
+    margin: 0 auto;
+    display: block;
+}
+
+.card-action {
+    border: none;
+}
+
+.row .input-field input:focus {
+    border-bottom: 1px solid #01579b !important;
+    box-shadow: 0 1px 0 0 #01579b !important
+}
+
+.row .input-field textarea:focus {
+    border-bottom: 1px solid #01579b !important;
+    box-shadow: 0 1px 0 0 #01579b !important
+}

@@ -1,0 +1,43 @@
+html {
+    background: #fafafa;
+    width: auto;
+    height: 100%;
+  }
+.bg {
+    width: auto;
+    min-height: 100vh;
+}
+
+  /* card */
+.card-title {
+    font-weight: bold;
+}
+
+/* icon */
+.material-icons {
+    font-size: 40px;
+}
+
+/* options of select form color */
+.option-color {
+    color: #01579b;
+}
+
+/* colors of label and input underlines */
+.input-field input[type=text]:focus + label, .input-field input[type=email]:focus + label, .input-field input[type=url]:focus + label, .input-field input[type=number]:focus + label{
+    color: #01579b;
+  }
+
+.input-field input[type=text]:focus, .input-field input[type=email]:focus, .input-field input[type=url]:focus, .input-field input[type=number]:focus {
+    border-bottom: 1px solid #01579b;
+    box-shadow: 0 1px 0 0 #01579b;
+  }
+
+  /* buttons check and cancel */
+.btn-check {
+    color: #4caf50;
+}
+ 
+.btn-cancel {
+    color: #f44336; 
+}

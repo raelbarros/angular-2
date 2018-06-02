@@ -1,0 +1,114 @@
+<script src="../../services/dao/dao.service.ts"></script>
+<html>
+  <body>
+<div class="bg grey lighten-5">
+
+  <app-header></app-header>
+
+  <!-- Sidebar -->
+  <div class="row container">
+    <div class="col s1 m3 l3 hide-on-med-and-down">
+
+      <aside>
+        <div id="container-sidebar">
+          <div id="menu">
+            <ul id="slide-out-menu" class="side-nav fixed hide-on-med-and-down">
+              <a href="#" class="brand-logo">
+                <img src="../../../assets/images/circlelogo.png" class="img-responsive" width="110px" height="auto">
+              </a>
+              <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                  <div>
+                    <li class="menu-list menu-top">
+                      <a href="#">
+                        <i class="material-icons prefix">date_range</i>Eventos</a>
+                      <!-- <a *ngFor="let item of menu">{{item}}</a> -->
+                    </li>
+                  </div>
+
+                  <li class="menu-list">
+                    <a (click)="openPage(ROUTER_MANAGE_EMPLOYEE);">
+                      <i class="material-icons prefix">assignment_ind</i>Gerenciar Funcionários</a>
+                  </li>
+
+                  <!-- <li class="menu-list">
+                    <a href="#">
+                      <i class="material-icons prefix">settings</i>Configurações</a>
+                  </li> -->
+
+                  <li class="menu-list">
+                    <a (click)="openPage(ROUTER_FAQ);">
+                      <i class="material-icons prefix">help</i>Ajuda</a>
+                  </li>
+                </ul>
+            </ul>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+    <!-- Conteudo -->
+    <div class="s11 m9 l9 valign-wrapper">
+      <div class="container">
+        <div class="content" *ngIf="!loading">
+
+          <div class="page-title">
+            <h3 class="title-page">Eventos</h3>
+          </div>
+          <!-- <h1 class="margin center-align welcomeText">Bem-vindo, {{userSession.user.name}}</h1> -->
+          <!-- inserir os botões nessa DIV -->
+          <div class="buttons-top">
+             <!-- Modal Trigger -->
+            <!-- btn add -->
+            <div class="btn-add left-align">
+              <button data-target="modal1" (click)="openModal()" class="btn blue darken-3 waves-effect waves-light modal-trigger">
+                Novo Evento
+              </button>
+            </div>
+          </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5><b>Aviso</b></h5>
+      <h6><p>Você não tem saldo para criar um novo evento.</p></h6>
+      <h6>Entre em contato com <a href="mailto:suporte@b3app.com"><strong>suporte@b3app.com</strong></a> ou pelo telefone <b>(11) 5555-5555</b> para adquirir mais eventos.</h6>
+    </div>
+  </div>
+          
+
+          <hr>
+            <div class="row">
+              <div class="col s12 m8 l6" id="events-list" *ngFor="let event of eventsList; let i = index">
+                <div class="card darken-1">
+                  <div class="card-content left-align">
+                    <div class="right-align">
+                      <button (click)="eventInfo(i)" class="btn-flat">
+                        <i class="material-icons">create</i>
+                      </button>
+                    </div>
+                    <p class="title card-title truncate">{{ event.name }}</p>
+                    
+                    <div class="content-text">
+                      <p [innerHTML]="event.description"></p>
+                      <br>
+                      <p>Evento em {{ event.language }} &nbsp; - &nbsp; {{ event.timezone }}</p>
+                      <p>{{ event.startDate }} &nbsp; - &nbsp; {{ event.endDate }}</p>
+                      <p>{{ event.placeName }}</p>
+                      <p>{{ event.placeAddress }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

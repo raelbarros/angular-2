@@ -1,0 +1,231 @@
+<html>
+
+<body>
+
+  <div class="bg grey lighten-5">
+    <app-header></app-header>
+
+    <div class="row container">
+
+      <div class="col s0 m0 l3">
+        <app-sidebar></app-sidebar>
+      </div>
+
+      <div class="col s12 m12 l9">
+
+        <div class="content card col s12 m12 l12">
+
+          <div *ngIf="loading">
+            <div class="progress light-blue lighten-2">
+              <div class="indeterminate light-blue darken-3"></div>
+            </div>
+          </div>
+
+            <h5 class="page-title">Informações do Evento</h5>
+
+          <form [formGroup]="formGroup" (ngSubmit)="updateEvent(formGroup.value)">
+
+            <div class="basic-detail">
+              <!-- <p class="separator left-align">Detalhes Basicos</p> -->
+
+              <div class="input-field">
+                <i class="material-icons prefix">person</i>
+                <input type="text" formControlName="name" placeholder="Nome do Evento" id="nameEvent">
+              </div>
+
+              <div class="input-field">
+                <i class="material-icons prefix">insert_link</i>
+                <input type="url" formControlName="url" placeholder="URL do Evento" id="url" disabled>
+                <!--<input type="url" formControlName="urlEvent" placeholder="URL do Evento" disabled>-->
+              </div>
+
+              <div class="input-field">
+                <i class="material-icons prefix">insert_link</i>
+                <input type="url" formControlName="subdomain" placeholder="Domínio personalizado" id="subdomain">
+                <!--<input type="url" formControlName="siteEvent" placeholder="Site do Evento" disabled>-->
+              </div>
+
+              <div class="input-field">
+                <i class="material-icons prefix">insert_link</i>
+                <input type="url" formControlName="site" placeholder="Site do Evento" id="site">
+                <!--<input type="url" formControlName="siteEvent" placeholder="Site do Evento" disabled>-->
+              </div>
+
+
+              <div class="input-field">
+                <i class="material-icons prefix"></i>
+                <select id="lang-select" formControlName="language" class="validate">
+                  <option disabled selected>Selecione o idioma do evento</option>
+                  <option value="{{LANG_EN}}">
+                    <span class="select-color">Inglês</span>
+                  </option>
+                  <option value="{{LANG_PT}}">
+                    <span class="select-color">Português</span>
+                  </option>
+                  <option value="{{LANG_FR}}">
+                    <span class="select-color">Francês</span>
+                  </option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <i class="material-icons prefix left"></i>
+                <select id="timezones" formControlName="timezone">
+                  <option disabled selected>Selecione o fuso-horário</option>
+                  <option value="{{TIMEZONE_ENIWETOK}}">
+                    <span class="select-color">(GMT -12:00) Eniwetok, Kwajalein</span>
+                  </option>
+                  <option value="{{TIMEZONE_MIDWAY}}">
+                    <span class="select-color">(GMT -11:00) Midway Island, Samoa</span>
+                  </option>
+                  <option value="{{TIMEZONE_HAWAII}}">
+                    <span class="select-color">(GMT -10:00) Hawaii</span>
+                  </option>
+                  <option value="{{TIMEZONE_ALASKA}}">
+                    <span class="select-color">(GMT -9:00) Alaska</span>
+                  </option>
+                  <option value="{{TIMEZONE_PACIFIC}}">
+                    <span class="select-color">(GMT -8:00) Pacific Time (US &amp; Canada)</span>
+                  </option>
+                  <option value="{{TIMEZONE_MOUNTAIN}}">
+                    <span class="select-color">(GMT -7:00) Mountain Time (US &amp; Canada)</span>
+                  </option>
+                  <option value="{{TIMEZONE_CENTRAL}}">
+                    <span class="select-color">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</span>
+                  </option>
+                  <option value="{{TIMEZONE_EASTERN}}">
+                    <span class="select-color">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</span>
+                  </option>
+                  <option value="{{TIMEZONE_ATLANTIC}}">
+                    <span class="select-color">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</span>
+                  </option>
+                  <option value="{{TIMEZONE_NEWFOUNDLAND}}">
+                    <span class="select-color">(GMT -3:30) Newfoundland</span>
+                  </option>
+                  <option value="{{TIMEZONE_BRAZIL}}">
+                    <span class="select-color">(GMT -3:00) Brazil, Buenos Aires, Georgetown</span>
+                  </option>
+                  <option value="{{TIMEZONE_MIDATLANTIC}}">
+                    <span class="select-color">(GMT -2:00) Mid-Atlantic</span>
+                  </option>
+                  <option value="{{TIMEZONE_AZORES}}">
+                    <span class="select-color">(GMT -1:00 hour) Azores, Cape Verde Islands</span>
+                  </option>
+                  <option value="{{TIMEZONE_WESTERNEUROPE}}">
+                    <span class="select-color">(GMT) Western Europe Time, London, Lisbon, Casablanca</span>
+                  </option>
+                  <option value="{{TIMEZONE_BRUSSELS}}">
+                    <span class="select-color">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</span>
+                  </option>
+                  <option value="{{TIMEZONE_KALININGRAD}}">
+                    <span class="select-color">(GMT +2:00) Kaliningrad, South Africa</span>
+                  </option>
+                  <option value="{{TIMEZONE_BAGHDAD}}">
+                    <span class="select-color">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</span>
+                  </option>
+                  <option value="{{TIMEZONE_TEHRAN}}">
+                    <span class="select-color">(GMT +3:30) Tehran</span>
+                  </option>
+                  <option value="{{TIMEZONE_ABUDHABI}}">
+                    <span class="select-color">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</span>
+                  </option>
+                  <option value="{{TIMEZONE_KABUL}}">
+                    <span class="select-color">(GMT +4:30) Kabul</span>
+                  </option>
+                  <option value="{{TIMEZONE_EKATERINBURG}}">
+                    <span class="select-color">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</span>
+                  </option>
+                  <option value="{{TIMEZONE_BOMBAY}}">
+                    <span class="select-color">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</span>
+                  </option>
+                  <option value="{{TIMEZONE_KATHMANDU}}">
+                    <span class="select-color">(GMT +5:45) Kathmandu</span>
+                  </option>
+                  <option value="{{TIMEZONE_ALMATY}}">
+                    <span class="select-color">(GMT +6:00) Almaty, Dhaka, Colombo</span>
+                  </option>
+                  <option value="{{TIMEZONE_BANGKOK}}">
+                    <span class="select-color">(GMT +7:00) Bangkok, Hanoi, Jakarta</span>
+                  </option>
+                  <option value="{{TIMEZONE_BEIJING}}">
+                    <span class="select-color">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</span>
+                  </option>
+                  <option value="{{TIMEZONE_TOKYO}}">
+                    <span class="select-color">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</span>
+                  </option>
+                  <option value="{{TIMEZONE_ADELAIDE}}">
+                    <span class="select-color">(GMT +9:30) Adelaide, Darwin</span>
+                  </option>
+                  <option value="{{TIMEZONE_EASTERNAUSTRALIA}}">
+                    <span class="select-color">(GMT +10:00) Eastern Australia, Guam, Vladivostok</span>
+                  </option>
+                  <option value="{{TIMEZONE_MAGADAN}}">
+                    <span class="select-color">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</span>
+                  </option>
+                  <option value="{{TIMEZONE_AUCKLAND}}">
+                    <span class="select-color">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</span>
+                  </option>
+                </select>
+              </div>
+
+            </div>
+
+            <div>
+              <!-- <p class="separator left-align">Data e Hora</p> -->
+
+              <div class="input-field">
+                <i class="material-icons prefix">access_time</i>
+                <input id="start-date" type="text" class="datepicker" formControlName="startDate" placeholder="Data de Inicio">
+              </div>
+
+              <div class="input-field">
+                <i class="material-icons prefix">event</i>
+                <input id="end-date" type="text" class="datepicker" formControlName="endDate" placeholder="Data Final">
+              </div>
+
+            </div>
+
+            <div class="">
+              <!-- <p class="separator left-align">Local</p> -->
+
+              <div class="input-field">
+                <i class="material-icons prefix">business</i>
+                <input id="place-name" type="text" formControlName="placeName" placeholder="Nome do Local">
+              </div>
+
+              <div class="input-field">
+                <i class="material-icons prefix">place</i>
+                <input id="place-address" type="text" formControlName="placeAddress" placeholder="Endereço do Local">
+              </div>
+
+            </div>
+
+            <div class="">
+              <!-- <p class="separator left-align">Informações Avançadas</p> -->
+
+              <div class="input-field">
+                <i class="material-icons prefix">email</i>
+                <input id="emailSupport" type="email" formControlName="emailSupport" placeholder="E-mail de Suporte">
+                <!--<input id="email-suporte" type="email" formControlName="emailSuporte" value="{{emailSuporte}}" placeholder="E-mail de Suporte" disabled>-->
+              </div>
+            </div>
+
+            <div class="input-field">
+                <app-ngx-editor [placeholder]="'Description'" [spellcheck]="true" formControlName="description"></app-ngx-editor>
+              </div>
+
+            <div class="card-action right-align">
+              <input type="submit" class="green waves-effect waves-light btn" onclick="Materialize.toast('Salvo com Sucesso!', 3000, 'rounded')"
+                value="Salvar">
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

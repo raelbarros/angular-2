@@ -1,0 +1,55 @@
+<html>
+
+<div class="bg grey lighten-4">
+
+  <div class="row container" *ngIf="!loading">
+
+    <div class="center-align">
+      <img class="responsive-img" src="https://i.imgur.com/dSELF6U.png">
+    </div>
+
+    <div class="card-panel white">
+      <form #loginForm="ngForm" (ngSubmit)="loginClick(loginForm.value)">
+        <div class="input-field">
+          <input id="email" type="email" name="email" class="validate text-entry" ngModel>
+          <label for="email" data-error="Verifique o email digitado">E-mail</label>
+        </div>
+        <div class="input-field">
+          <input id="password" type="password" name="password" class="validate text-entry" ngModel>
+          <label for="password">Password</label>
+        </div>
+
+        <div class="left-align">
+          <a class="modal-trigger" (click)="openModal()" href="#resetPassword">Esqueceu sua senha?</a>
+        </div>
+        <div class="input-field right-align">
+          <input id="login" type="submit" value="Entrar" class="waves-effect waves-light btn light-blue darken-4">
+        </div>
+      </form>
+      <p *ngIf="loginFailed" class="red-text">Email or password is incorrect</p>
+    </div>
+
+
+
+    <div id="resetPassword" class="modal">
+      <form #resetForm="ngForm" (ngSubmit)="resetPassword(resetForm.value)">
+        <div class="modal-content">
+          <h5>Informe o e-mail!</h5>
+          <br>
+          <input id="email-recovery" type="email" name="email" class="validate text-entry" placeholder="E-mail" ngModel>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat" (click)="closeModal()">Cancelar</a>
+          <input type="submit" class="modal-action modal-close waves-effect waves-light btn green" value="Enviar">
+        </div>
+      </form>
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
+</html>

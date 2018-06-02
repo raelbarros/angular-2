@@ -1,0 +1,429 @@
+<script src="../../services/dao/dao.service.ts"></script>
+
+<html>
+<div class="bg grey lighten-5">
+
+  <!-- header component -->
+  <app-header></app-header>
+
+  <!-- dashboard content -->
+  <div class="row container space">
+
+    <div class="col s12 m12 l12">
+
+      <div class="row">
+        <!-- Card GOD Accounts -->
+        <div class="col s12 m6 l6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">GOD
+                <a class='dropdown-button btn-flat right' href='#' data-activates='dropdown1'>
+                  <i class="material-icons">more_vert</i>
+                </a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                  <li>
+                    <a (click)="openPage(ROUTER_NEW_ADM);">Nova Conta</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a class="modal-trigger" (click)="openModal()" href="#modal1">Expandir</a>
+                  </li>
+
+                </ul>
+              </span>
+
+              <!-- content start here -->
+
+              <!-- ngFor search GOD accounts - dashboard.component.ts - display limit is 3 -->
+              <div *ngFor="let god of godList; let i=index">
+                <div *ngIf="i<3">
+                  <ul class="collection">
+                    <li class="collection-item">
+                      <a href="#!" class="secondary-content">
+                        <!-- <i class="material-icons">create</i> -->
+                      </a>
+                      <p>
+                        <strong>{{god.name}}</strong>
+                      </p>
+                      <p>{{god.email}}</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- content finish here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Modal God Accounts -->
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4 class="center card-title">GOD
+              <a (click)="openPage(ROUTER_NEW_ADM);" class="btn-flat right">
+                <i class="material-icons">add_circle_outline</i>
+              </a>
+            </h4>
+
+            <!-- Search filter - filter.pipe.ts / dashboard.component.ts -->
+
+            <!-- <div class="input-field">
+              <form id="filter">
+                <input type="text" [(ngModel)]="term" name="term" />
+                <label>
+                  <i class="material-icons">search</i>
+                </label>
+              </form>
+            </div> -->
+
+            <!-- ngFor search GOD accounts  - dashboard.component.ts - display limit is 10 -->
+            <div *ngFor="let god of godList; let i=index">
+              <div *ngIf="i<10">
+                <ul class="collection">
+                  <li class="collection-item">
+                    <!-- Abrir modal interna -->
+                    <a class="right modal-trigger" href="#modalInternaGod" (click)="getGodRemove(god)">
+                      <i class="material-icons red-text text-darken-1">delete</i> 
+                    </a>
+                    <!-- fim do link para abrrir modal interna -->
+                    <a (click)="editUser(god);" class="secondary-content">
+                      <i class="material-icons btn-edit">create</i>
+                    </a>
+                    <strong>{{god.name}}</strong>
+                    <br>{{god.email}}
+                  </li>
+                </ul>
+              </div>             
+            </div>
+          </div>        
+        </div>
+
+        <!-- Modal God Accounts Structure (Internal) -->
+        <div id="modalInternaGod" class="modal bottom-sheet center">
+          <div>
+            <div class="center">
+              <i class="large material-icons light-blue-text text-darken-4">warning</i>
+              <h5>Você está prestes a excluir um usuário.</h5>
+              <p>Tem certeza que deseja continuar?</p>
+              <button class="waves-effect waves-light btn light-blue darken-4" (click)="closeModal()">Voltar</button>
+              <button class="waves-effect waves-light btn red darken-1" (click)="removeGod()">Excluir</button>
+            </div>
+          </div>
+        </div> 
+        <!-- Finish Modal God Accounts -->
+
+        <!-- Card Client Accounts -->
+        <div class="col s12 m6 l6">
+          <div class="card">
+            <div class="card-content">
+
+              <span class="card-title">Clientes
+                <a class='dropdown-button btn-flat right' href='#' data-activates='dropdown2'>
+                  <i class="material-icons">more_vert</i>
+                </a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown2' class='dropdown-content'>
+                  <li>
+                    <a (click)="openPage(ROUTER_NEW_ACCOUNT);">Nova Conta</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a class="modal-trigger" (click)="openModal()" href="#modal2">Expandir</a>
+                  </li>
+
+                </ul>
+              </span>
+              <!-- content here -->
+              <!-- ngFor search CLIENT accounts - dashboard.component.ts - display limit is 3 -->
+              <div *ngFor="let client of clientsList; let i=index">
+                <div *ngIf="i<3">
+                  <ul class="collection">
+                    <li class="collection-item">
+                      <span class="title">
+                        <strong>{{client.name}}</strong>
+                      </span>
+                      <a href="#!" class="secondary-content">
+                        <!-- <i class="material-icons">create</i> -->
+                      </a>
+                      <p>{{client.email}}</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- content finish here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Modal Client Accounts -->
+
+        <!-- Modal Structure -->
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4 class="center card-title">Cliente
+              <a (click)="openPage(ROUTER_NEW_ACCOUNT);" class="btn-flat right">
+                <i class="material-icons">add_circle_outline</i>
+              </a>
+            </h4>
+
+            <!-- Search filter - filter.pipe.ts / dashboard.component.ts -->
+            <!-- <div class="input-field">
+              <form id="filter">
+                <input type="text" [(ngModel)]="term" name="term" />
+                <label>
+                  <i class="material-icons">search</i>
+                </label>
+              </form>
+            </div> -->
+
+            <!-- ngFor search CLIENT accounts - dashboard.component.ts - display limit is 10 -->
+            <div *ngFor="let client of clientsList;  let i=index">
+              <div *ngIf="i<10">
+                <ul class="collection">
+                  <li class="collection-item">
+                    <a class="right modal-trigger" href="#modalInternaCliente" (click)="getClientRemove(client)">
+                      <i class="material-icons red-text text-darken-1">delete</i> 
+                    </a>
+                    <a (click)="editUser(client);" class="secondary-content">
+                      <i class="material-icons btn-edit">create</i>
+                    </a>
+                    <span class="title">
+                      <strong>{{client.name}}</strong>
+                    </span>
+                    <p id="margin">{{client.email}}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Client Accounts (internal) -->
+      <div id="modalInternaCliente" class="modal bottom-sheet center">
+        <div>
+          <div class="center">
+            <i class="large material-icons light-blue-text text-darken-4">warning</i>
+            <h5>Você está prestes a excluir um cliente.</h5>
+            <p>Tem certeza que deseja continuar?</p>
+            <button class="waves-effect waves-light btn light-blue darken-4" (click)="closeModal()">Voltar</button>
+            <button class="waves-effect waves-light btn red darken-1" (click)="removeClient()">Excluir</button>
+          </div>
+        </div>
+      </div>
+      <!-- Finish Modal Client Accounts -->
+
+
+      <div class="row">
+        <!-- Card Events -->
+        <div class="col s12 m6 l6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Eventos
+                <a class='dropdown-button btn-flat right' href='#' data-activates='dropdown3'>
+                  <i class="material-icons">more_vert</i>
+                </a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown3' class='dropdown-content'>
+                  <li>
+                    <a (click)="openPage(ROUTER_NEW_EVENT);">Novo Evento</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a class="modal-trigger" (click)="openModal()" href="#modal3">Expandir</a>
+                  </li>
+
+                </ul>
+              </span>
+              <!-- content here -->
+              <!-- ngFor search EVENTS - dashboard.component.ts - display limit is 4 -->
+              <div *ngFor="let event of eventsList; let i=index">
+                <div *ngIf="i<4">
+                  <ul class="collection">
+                    <li class="collection-item">
+                      <span class="title">
+                        <strong>{{event.name}}</strong>
+                      </span>
+                      <a href="#!" class="secondary-content">
+                        <!-- <i class="material-icons">create</i> -->
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- content finish here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Modal Event -->
+
+        <!-- Modal Structure -->
+        <div id="modal3" class="modal">
+          <div class="modal-content">
+            <h4 class="center card-title">Eventos
+              <a (click)="openPage(ROUTER_NEW_EVENT);" class="btn-flat right">
+                <i class="material-icons">add_circle_outline</i>
+              </a>
+            </h4>
+
+            <!-- Search filter - filter.pipe.ts / dashboard.component.ts -->
+            <!-- <div class="input-field">
+              <form id="filter">
+                <input type="text" [(ngModel)]="term" name="term" />
+                <label>
+                  <i class="material-icons">search</i>
+                </label>
+              </form>
+            </div> -->
+
+            <!-- ngFor search EVENTS - dashboard.component.ts - display limit is 10 -->
+            <div *ngFor="let event of eventsList; let i=index">
+              <div *ngIf="i<10">
+                <ul class="collection">
+                  <li class="collection-item">
+                    <span class="title">
+                      <strong>{{event.name}}</strong>
+                    </span>
+                    <a class="right modal-trigger" href="#modalInternaEvent" (click)="getEventRemove(event)">
+                      <i class="material-icons red-text text-darken-1">delete</i> 
+                    </a>
+                    <a class="secondary-content" (click)="editEvent(event);">
+                      <i class="material-icons btn-edit">create</i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Finish Modal Event -->
+        <!-- Modal Client Accounts (internal) -->
+      <div id="modalInternaEvent" class="modal bottom-sheet center">
+        <div>
+          <div class="center">
+            <i class="large material-icons light-blue-text text-darken-4">warning</i>
+            <h5>Você está prestes a excluir um evento.</h5>
+            <p>Tem certeza que deseja continuar?</p>
+            <button class="waves-effect waves-light btn light-blue darken-4" (click)="closeModal()">Voltar</button>
+            <button class="waves-effect waves-light btn red darken-1" (click)="removeEvent()">Excluir</button>
+          </div>
+        </div>
+      </div>
+
+        <!-- Start Modal Event B3App -->
+
+        <div class="col s12 m6 l6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Eventos B3App
+                <a class='dropdown-button btn-flat right' href='#' data-activates='dropdown4'>
+                  <i class="material-icons">more_vert</i>
+                </a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown4' class='dropdown-content'>
+                  <li>
+                    <a (click)="openPage(ROUTER_NEW_EVENT);">Novo Evento</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a class="modal-trigger" (click)="openModal()" href="#modal4">Expandir</a>
+                  </li>
+
+                </ul>
+              </span>
+              <!-- content here -->
+              <!-- ngFor search EVENTS - dashboard.component.ts - display limit is 4 -->
+              <div *ngFor="let event of eventListB3App; let i=index">
+                <div *ngIf="i<4">
+                  <ul class="collection">
+                    <li class="collection-item">
+                      <span class="title">
+                        <strong>{{event.name}}</strong>
+                      </span>
+                      <a href="#!" class="secondary-content">
+                        <!-- <i class="material-icons">create</i> -->
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- content finish here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Modal Event B3App -->
+
+        <!-- Modal Structure -->
+        <div id="modal4" class="modal">
+          <div class="modal-content">
+            
+            <h4 class="center card-title">Eventos B3App
+              <a (click)="openPage(ROUTER_NEW_EVENT);" class="btn-flat right">
+                <i class="material-icons">add_circle_outline</i>
+              </a>
+            </h4>
+
+            <!-- Search filter - filter.pipe.ts / dashboard.component.ts -->
+            <!-- <div class="input-field">
+              <form id="filter">
+                <input type="text" [(ngModel)]="term" name="term" />
+                <label>
+                  <i class="material-icons">search</i>
+                </label>
+              </form>
+            </div> -->
+
+            <!-- ngFor search EVENTS - dashboard.component.ts - display limit is 10 -->
+            <div *ngFor="let event of eventListB3App; let i=index">
+              <div *ngIf="i<10">
+                <ul class="collection">
+                  <li class="collection-item">
+                    <span class="title">
+                      <strong>{{event.name}}</strong>
+                    </span>
+                    <a class="right modal-trigger" href="#modalInternaEventB3App" (click)="getEventRemove(event)">
+                      <i class="material-icons red-text text-darken-1">delete</i> 
+                    </a>
+                    <a class="secondary-content" (click)="editEvent(event);">
+                      <i class="material-icons btn-edit">create</i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Finish Modal Event B3App -->
+        <div id="modalInternaEventB3App" class="modal bottom-sheet center">
+          <div>
+            <div class="center">
+              <i class="large material-icons light-blue-text text-darken-4">warning</i>
+              <h5>Você está prestes a excluir um evento.</h5>
+              <p>Tem certeza que deseja continuar?</p>
+              <button class="waves-effect waves-light btn light-blue darken-4" (click)="closeModal()">Voltar</button>
+              <button class="waves-effect waves-light btn red darken-1" (click)="removeEventB3App()">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</html>

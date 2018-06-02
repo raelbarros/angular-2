@@ -1,0 +1,28 @@
+html {
+    background: #fafafa;
+    width: auto;
+    height: 100%;
+  }
+  
+  .bg {
+    width: auto;
+    min-height: 100vh;
+  }
+  
+.page-title {
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.title-page {
+    font-weight: bold;
+}
+
+.material-icons {
+    font-size: 20px;
+    color: grey;
+}
+
+.icons-manage {
+    float: right;
+}

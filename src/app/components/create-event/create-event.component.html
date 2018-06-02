@@ -1,0 +1,26 @@
+<div>
+
+    <div class="progress light-blue lighten-2">
+        <div class="indeterminate light-blue darken-3"></div>
+    </div>
+
+</div>
+
+<div class="row">
+  <div id="base-event-data">
+    <h2>Basic event data</h2>
+    <form [formGroup]="formGroup" (ngSubmit)="createNewApp(formGroup.value)">
+      <div class="input-field col m6">
+        <input id="app-name" type="text" class="validate" formControlName="name">
+        <label for="app-name">Nome do aplicativo</label>
+      </div>
+      <div class="col m6">
+        <input id="agenda" type="checkbox" formControlName="agendaModule">
+        <label for="agenda">Agenda</label>
+      </div>
+      <div class="col m6">
+        <input type="submit" class="waves-effect waves-light btn" value="Submit">
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+
+
+<aside>
+  <div id="container-sidebar">
+    <div id="menu">
+      <ul id="slide-out-menu" class="side-nav fixed show-on-large-only">
+        <a class="brand-logo" (click)="openPage(ROUTER_DASHBOARD_CLIENT)">
+          <img src="../../../assets/images/circlelogo.png" class="img-responsive" width="110px" height="auto">
+        </a>
+        <li class="no-padding">
+          <ul class="collapsible" data-collapsible="expandable">
+            <li>
+              <a class="collapsible-header active">Configurações Gerais<i
+                class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a (click)="openPage(ROUTER_EVENT_INFO)"><i class="material-icons prefix">info_outline</i>Informações do Evento</a></li>
+                  <!--<li><a>Pagina Inicial do Aplicativo</a></li>
+                  <li><a>Design</a></li>
+                  <li><a>Banners</a></li>
+                  <li><a>Analytics</a></li>
+                  <li><a>Promover o Aplicativo</a></li>
+                  <li><a>Segurança do Aplicativo</a></li>
+                  <li><a>Pré-visualização</a></li>-->
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a class="collapsible-header active">Modulo do Aplicativo<i
+                class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a (click)="openPage(ROUTER_ADD_MODULES)"><i class="material-icons prefix">add</i>Adicionar Módulos</a></li>
+                  <li><a (click)="openPage(ROUTER_EVENT_SCHEDULE)"><i class="material-icons prefix">date_range</i>Cronograma</a></li>
+                  <li><a (click)="openPage(ROUTER_SPEAKERS)"><i class="material-icons prefix">mic_none</i>Palestrantes</a></li>
+                  <li><a (click)="openPage(ROUTER_ATTENDEES)"><i class="material-icons prefix">group</i>Participantes</a></li>
+                  <li><a (click)="openPage(ROUTER_INTERACTIVITY)"><i class="material-icons">dvr</i>Survey</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,79 @@
+html, body {
+  background: #fafafa;
+  width: auto;
+  height: 100%;
+}
+
+.bg {
+  width: auto;
+  min-height: 100vh;
+}
+
+header, main, footer {
+  padding-left: 300px;
+}
+
+.separator {
+  padding-left: 1%;
+  background: #01579b;
+  color: #fff;
+}
+
+.material-icons {
+  margin-top: 1.2%;
+  font-size: 20px;
+  color: rgb(61, 61, 61);
+}
+
+.material-icons.active {
+  color: #01579b;
+}
+
+.content {
+  text-align: center;
+  /* background-color: white; */
+  margin: 3% 8% 0 0; 
+}
+
+/* CSS CARDs EVENT */
+.basic-detail {
+  padding-bottom: 2%;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.row .input-field input:focus {
+  border-bottom: 1px solid #01579b !important;
+  box-shadow: 0 1px 0 0 #01579b !important
+}
+
+.row .input-field textarea:focus {
+	border-bottom: 1px solid #01579b !important;
+	box-shadow: 0 1px 0 0 #01579b !important
+}
+
+.select-color {
+  color: #01579b;
+}
+
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+.page-title {
+  font-weight: bold;
+  position: relative;
+  top: 20px;
+}
+
+.page-footer {
+  width: 92%;
+  height: 2%;
+}
+
+.card-action {
+  border: none;;
+}

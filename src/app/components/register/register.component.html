@@ -1,0 +1,69 @@
+<div *ngIf="!loading">
+  <div *ngIf="currentUser.type == 0"><h2>Ops! You do not have access to create accounts</h2></div>
+  <div *ngIf="currentUser.type > 0" class="row">
+    <div class="container">
+      <div class="card-panel grey darken-4 col m12">
+        <form [formGroup]="formGroup" (ngSubmit)="registerClick(formGroup.value)">
+          <div class="input-field col m6">
+            <input id="name" type="text" name="name" class="validate text-entry" formControlName="name">
+            <label for="name">Full Name</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="email" type="text" name="email" class="validate text-entry" formControlName="email">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="password" type="password" name="password" class="validate text-entry" formControlName="password">
+            <label for="password">Password</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="conf-password" type="password" class="validate text-entry">
+            <label for="conf-password">Confirm Password</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="company" type="text" name="company" class="validate text-entry" formControlName="company">
+            <label for="company">Company</label>
+          </div>
+          <div class="input-field col m6">
+            <select name="userType" id="user-type" formControlName="userType">
+              <option *ngIf="currentUser.type == 4" value="4">Super God</option>
+              <option *ngIf="currentUser.type > 3" value="3">God</option>
+              <option *ngIf="currentUser.type > 2" value="2">Client</option>
+              <option *ngIf="currentUser.type > 1" value="1">Client Employee</option>
+              <option value="0" selected>General</option>
+            </select>
+            <label for="user-type">Type</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="title" type="text" name="title" class="validate text-entry" formControlName="title">
+            <label for="title">Title</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="description" type="text" name="description" class="validate text-entry" formControlName="description">
+            <label for="description">Description</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="facebook" type="url" name="facebook" class="validate text-entry" formControlName="facebook">
+            <label for="facebook">Facebook</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="instagram" type="url" name="instagram" class="validate text-entry" formControlName="instagram">
+            <label for="instagram">Instagram</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="twitter" type="url" name="twitter" class="validate text-entry" formControlName="twitter">
+            <label for="twitter">Twitter</label>
+          </div>
+          <div class="input-field col m6">
+            <input id="linkedin" type="url" name="linkedin" class="validate text-entry" formControlName="linkedin">
+            <label for="linkedin">LinkedIn</label>
+          </div>
+          <div class="input-field col m12 right-align">
+            <button id="register" type="submit" [disabled]="!formGroup.valid" class="waves-effect waves-light btn grey darken-3">Register</button>
+          </div>
+        </form>
+        <p *ngIf="hasError" style="color:red;">{{ error }}</p>
+      </div>
+    </div>
+  </div>
+</div>

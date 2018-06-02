@@ -1,0 +1,140 @@
+<html>
+<div class="bg grey lighten-5">
+
+  <!-- header component -->
+  <app-header></app-header>
+
+  <div class="row container">
+    <div class="col s12 m12 l12">
+
+      <form [formGroup]="formGroup" (ngSubmit)="createEvent(formGroup.value)">
+        <div class="row">
+          <div class="card">
+            <div class="card-content center">
+              <div class="row">
+                <!-- Button Arrow Back-->
+                <div class="col s4 left-align">
+                  <a class="btn-flat" (click)="openPage(ROUTER_DASHBOARD);">
+                    <i class="btn-cancel material-icons">close</i>
+                  </a>
+                </div>
+
+                <!-- Title -->
+                <div class="col s4">
+                  <span class="card-title">Novo Evento</span>
+                </div>
+
+                <!-- Button Confirm-->
+                <div class="col s4 right-align">
+                  <a class="btn-flat" (click)="createEvent(formGroup.value)">
+                    <i class="btn-check material-icons">check</i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Form e-mail -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate" formControlName="email">
+                  <label for="email">E-mail</label>
+                </div>
+              </div>
+
+              <!-- Form Name -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="name" type="text" class="validate" formControlName="name">
+                  <label for="name">Nome do Evento</label>
+                </div>
+              </div>
+
+              <!-- Date picker -->
+              <div class="row">
+
+                <div class="input-field col s6">
+                  <input id="startDate" type="text" class="datepicker" formControlName="startDate">
+                  <label for="startDate">Data de Início</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input id="endDate" type="text" class="datepicker" formControlName="endDate">
+                  <label for="endDate">Data de Encerramento</label>
+                </div>
+
+                <!-- Select modules -->
+                <div class="row">
+                  <!-- <div class="input-field col s12">
+                    <select>
+                      <option value="0" disabled selected>Selecione o Pacote</option>
+                      <option value="normal">
+                        <span class="option-color">Normal</span>
+                      </option>
+                      <option value="attendees">
+                        <span class="option-color">Por Participantes</span>
+                      </option>
+                      <option value="3">
+                        <span class="option-color">Pacote Premium</span>
+                      </option>
+                    </select>
+                  </div> -->
+
+                    <div class="col s6">
+                      <input type="checkbox" class="filled-in limited" id="normalPackage" />
+                      <label for="normalPackage">Pacote Normal</label>
+                    </div>
+                    <div class="col s6">
+                      <input type="checkbox" class="filled-in limited" id="attendeePackage" />
+                      <label for="attendeePackage">Pacote Participantes</label>
+                    </div>
+
+                </div>
+                <div id="hidden_fields">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input type="number" formControlName="numberAttendee" id="hidden_field" name="hidden">
+                      <label for="hidden_field">Número de Participantes</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form URL -->
+              <!--
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="url" type="url" class="validate" formControlName="url" disabled>
+                  <label for="url">URL do Evento</label>
+                </div>
+              </div>
+
+              <!-- Form Number -->
+              <!--
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="number" type="number" formControlName="numberAttendee" disabled>
+                  <label for="number">Número de Participantes</label>
+                </div>
+              </div>
+            -->
+            </div>
+            <!--card-content center-->
+          </div>
+          <!--card-->
+        </div>
+        <!--row-->
+
+        <!--row error message -->
+        <div class="row">
+          {{msgError}}
+        </div>
+
+      </form>
+
+    </div>
+    <!--col s12 m12 l12-->
+  </div>
+  <!--row container-->
+
+</div>
+
+</html>

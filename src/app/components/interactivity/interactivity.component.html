@@ -1,0 +1,46 @@
+<html>
+
+<body>
+
+  <div class="bg grey lighten-4">
+    <app-header></app-header>
+    <div class="row container">
+      <div class="col s1 m3 l3">
+        <app-sidebar></app-sidebar>
+      </div>
+
+      <div class="col s11 m9 l9">
+        <!-- title page -->
+        <div class="page-title">
+          <h3 class="title-page center">Event Survey</h3>
+        </div>
+
+        <!-- inserir os botões nessa DIV -->
+        <div class="buttons-top">
+          <!-- btn add -->
+          <div class="btn-add left-align">
+            <button class="btn blue darken-3 waves-effect waves-light" (click)="openPage(ROUTER_ADD_SURVEY)">Adicionar</button>
+            <button class="btn blue darken-3 waves-effect waves-light">Resultados</button>
+          </div>
+        </div>
+        <hr>
+        <!-- *ngFor="let survey of surveyList" -->
+        <div class="survey-list">
+          <ul class="collection">
+            <li class="collection-item">
+              <strong>Survey Title</strong>
+              <span class="icons-manage">
+                <i class="material-icons">create</i>
+                <i class="material-icons red-text">delete</i>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+html {
+    background: #fafafa;
+    width: auto;
+    height: 100%;
+}
+.bg {
+    width: auto;
+    min-height: 100vh;
+}
+
+#users-list i {
+    cursor: pointer;
+}
+
+.space {
+    margin-top: 10%;
+}
+
+/* Cards */
+.card-title {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.87)
+}
+
+.card {
+    width: auto;
+    height: 328px;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+/* Collection - name/email of accounts/events */
+
+.collection {
+    border: none;
+    border-top: dotted 1px #ccc;
+}
+
+.material-icons {
+    font-size: 20px;
+    color: gray;
+}
+
+/* Dropdown */
+.dropdown-content li > a, .dropdown-content li > span {
+    color: #0277bd !important;
+    margin-top: 5%;
+}
+
+/* Modal */
+.modal {
+    background: #fff;
+    width: 90%;
+    height: 100%;
+}
+
+/* Internal Modal */
+#modalInternaGod, #modalInternaCliente, #modalInternaEvent {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  left: 23%;
+  top: 40%;
+  padding: 20px;
+}
+
+/* internal modal icon size */
+#modalInternaGod i, #modalInternaCliente i, #modalInternaEvent i {
+  font-size: 5em;
+}
+
+/* internal modal button */
+#modalInternaGod button, #modalInternaCliente button, #modalInternaEvent button {
+  margin-bottom: 5px;
+}
+
+
+/* internal modal titulo */
+#modalInternaGod h5, #modalInternaCliente h5, #modalInternaEvent h5 {
+  font-size: 2em;
+}
+
+/* Input */
+.row .input-field input:focus {
+    border-bottom: 1px solid #01579b !important;
+    box-shadow: 0 1px 0 0 #01579b !important
+  }
+
+.nav-wrapper {
+    color: #000;
+  }
+
+.input-field {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  p#margin {
+
+  	margin: 0 auto;
+
+  }
+
+  .btn-edit {
+      margin-right: 20px;
+  }

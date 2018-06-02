@@ -1,0 +1,91 @@
+html {
+    background: #fafafa;
+    width: auto;
+    height: 100%;
+  }
+  
+  .bg {
+    width: auto;
+    min-height: 100vh;
+  }
+
+  .side-nav{
+    width: 300px;
+}
+  
+.page-title {
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.title-page {
+    font-weight: bold;
+}
+
+button {
+    padding: 0 0.5rem;
+}
+
+.content {
+    text-align: center;
+    padding-bottom: 10px;
+    margin: auto auto auto auto;
+    height: 100vw;
+}
+
+.btnFile:hover {
+    background: #0b7dda;
+}
+
+#btn-template {
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.btn-choose {
+        margin-top: 4%;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        padding: 0 0.5rem;
+        color: #fff;
+}
+
+#btn-save {
+    margin-top: 9%;
+}
+
+button {
+    margin-bottom: 10px;
+}
+
+.modal {
+    min-height: 25%;
+    min-width: 35%;
+    overflow-y: hidden;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.material-icons {
+    font-size: 20px;
+    color: gray;
+}
+
+.menu-top {
+    border-top: solid 0.5px #f1f1f1;
+  }
+  
+  .menu-list {
+    border-bottom: solid 0.5px #f1f1f1;
+  }
+  
+  .img-brand {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
+    padding-bottom: 90px;
+  }

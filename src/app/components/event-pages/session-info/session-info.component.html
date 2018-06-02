@@ -1,0 +1,94 @@
+<html>
+
+<body>
+  <div class="bg grey lighten-5">
+
+    <app-header></app-header>
+
+    <div class="row container">
+
+      <div class="col s1 m3 l3 hide-on-med-and-down">
+        <app-sidebar></app-sidebar>
+      </div>
+
+      <div class="content1">
+        <div class="col s11 m9 l9">
+
+          <div class="page-title">
+
+            <h4 class="title-page">Editar Cronograma</h4>
+
+          </div>
+
+          <div class="content card col s12 m12 l12">
+
+            <div class="col s4 left-align">
+              <div class="btn-voltar">
+                <a class="btn-flat" (click)="openPage(ROUTER_EVENT_SCHEDULE);">
+                  <i class="btn-cancel material-icons">close</i>
+                </a>
+              </div>
+            </div>
+
+
+            <div class="section-title">
+              <h5 class="title-page">Detalhes</h5>
+            </div>
+            <br>
+
+            <form [formGroup]="formGroup" (ngSubmit)="updateSession(formGroup.value)">
+              <div class="">
+
+                <div class="input-field">
+                  <div class="input-field">
+                    <i class="material-icons prefix">group</i>
+                    <input id="topic" type="text" class="validate" formControlName="topic" placeholder="Nome da Sessão">
+                  </div>
+                  <div class="input-field">
+                    <i class="material-icons prefix">event</i>
+                    <input id="date" type="text" class="datepicker" formControlName="date" placeholder="Date">
+                  </div>
+                  <div class="input-field">
+                    <i class="material-icons prefix">access_time</i>
+                    <input id="start-time" type="text" class="timepicker" formControlName="startTime" placeholder="Start Time">
+                  </div>
+                  <div class="input-field">
+                    <i class="material-icons prefix">access_time</i>
+                    <input id="end-time" type="text" class="timepicker" formControlName="endTime" placeholder="End Time">
+                  </div>
+                </div>
+
+
+                <div class="input-field left-align">
+                  <i class="material-icons prefix">keyboard_voice</i>
+                  <div contenteditable="true" data-placeholder="Palestrantes" id="auto-complete" class="chips chips-autocomplete"></div>
+                  <!-- <label for="auto-complete">Palestrantes</label> -->
+                </div>
+
+                <div class="input-field">
+                    <app-ngx-editor [placeholder]="'Descrição'" [spellcheck]="true" formControlName="description"></app-ngx-editor>
+                  </div>
+
+              </div>
+
+              <div class="input-field right-align">
+                <!-- btn Detele Form -->
+                <input type="button" class="red waves-effect waves-light btn" (click)="removeSession()" value="Excluir">
+
+                <!-- btn Salve Form -->
+                <input type="submit" class="green waves-effect waves-light btn" onclick="Materialize.toast('Salvo com sucesso!', 3000, 'rounded')"
+                  value="Salvar">
+
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

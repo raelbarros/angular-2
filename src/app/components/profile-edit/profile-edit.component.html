@@ -1,0 +1,53 @@
+<html>
+<div class="bg grey lighten-4">
+    <app-header></app-header>
+
+    <div class="row">
+        <div class="col s12 m12 l12">
+
+            <!-- title page -->
+            <div class="page-title">
+                <h3 class="title-page">Editar Perfil</h3>
+            </div>
+
+            <div class="avatar">
+                <img src="http://lentech.org/images/no_avatar.png" class="circle" width="10%">
+            </div>
+        </div>
+    </div>
+
+    <div class="row container">
+        <div class="card col s12 m12 l12">
+
+            <form [formGroup]="formGroup" (ngSubmit)="updateInfoProfile(formGroup.value);">
+                <div class="input-field">
+                    <input type="text" formControlName="name" id="name" placeholder="Nome completo">
+                </div>
+
+                <div class="input-field">
+                    <input type="email" formControlName="email" id="email" placeholder="E-mail">
+                </div>
+
+                <div class="input-field">
+                    <input type="text" formControlName="company" id="company" placeholder="Empresa">
+                </div>
+
+                <div class="input-field">
+                    <input type="password" formControlName="password" id="password" placeholder="Senha">
+                </div>
+
+                <div class="input-field">
+                    <app-ngx-editor [placeholder]="'Descrição'" [spellcheck]="true" formControlName="description"></app-ngx-editor>
+                </div>
+                <div class="card-action center-align">
+                    <button class="red waves-effect waves-light btn" (click)="openPage(ROUTER_DASHBOARD_CLIENT);">Voltar</button>
+                    <button type="submit" class="green waves-effect waves-light btn">Salvar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</html>

@@ -1,0 +1,147 @@
+<html>
+<div class="bg grey lighten-5">
+  <app-header></app-header>
+  <div class="row container">
+
+    <div class="col s1 m3 l3 hide-on-med-and-down">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="col s11 m9 l9">
+
+      <div class="container-full">
+        <div class="page-title">
+          <h3 class="title-page">Cronograma</h3>
+        </div>
+        <!-- inserir os botões nessa DIV -->
+        <div class="buttons-top">
+          <!-- btn add -->
+          <div class="btn-add left-align">
+            <button (click)="openPage(ROUTER_CREATE_SESSION);" class="blue darken-3 waves-effect waves-light btn">Adicionar</button>
+            <button data-target="modal1" class="btn blue darken-3 modal-trigger" (click)="openModal()">Importar</button>
+            <button data-target="modal1" class="btn blue darken-3 modal-trigger" (click)="exportFileSessions()">Exportar</button>
+            <button data-target="modal2" class="btn blue darken-3 modal-trigger" (click)="openModal()">Tracks</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title center">Importar Dados</h4>
+          </div>
+          <div class="modal-body">
+
+            <!-- button download template -->
+            <div id="btn-template" class="center">
+              <p>Caso tenha dúvidas em relação a estrutura de importação, baixe nosso template em Excel para auxilia-lo.</p>
+              <a class="btn light-blue darken-2" (click)="exportFileTemplate()">Baixar Template</a>
+            </div>
+
+            <div class="center">
+              <span>ou então...</span>
+            </div>
+
+            <!-- button choose file -->
+            <div class="file-field input-field center">
+
+              <div class="btn-flat blue darken-4 btn-choose">
+                <span>Selecione um arquivo</span>
+                <input type="file" (change)="onFileChange($event)" multiple="false">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" (change)="exportFileTemplate()" type="text">
+              </div>
+
+            </div>
+
+            <div id="errors-xlsx">
+              <ul class="collection" *ngIf="theError">
+                <li class="collection-item red lighten-2 the-error">Dados não importados, identificamos nomes ou e-mails incorretos nas células:</li>
+                <br>
+                <label class="wrong-text">{{messageErrors}}</label>
+              </ul>
+            </div>
+
+            <div class="center">
+              <button id="btn-save" class="btn green waves-effect waves-light" (click)="importSession()">Salvar</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <!-- Modal Structure -->
+
+      <div class="container-full">
+
+        <div class="content" *ngIf="!loading">
+          <div class="row">
+            <div class="col s12 m8 l6 offset-m2 offset-l13" *ngFor="let session of sessions; let i = index">
+              <!-- content card -->
+              <div class="card">
+                <div class="card-content left-align">
+                  <div class="right-align">
+                    <button (click)="sessionInfo(i)" class="btn-flat">
+                      <i class="material-icons">create</i>
+                    </button>
+                  </div>
+                  <span class="card-title truncate">{{session.topic}}</span>
+                  <div class="content-text">
+                    <p [innerHTML]="session.description"></p>
+                    <br>
+                    <br>
+                    <label>{{session.date}}</label>
+                    <br>
+                    <label>{{session.startTime}} - {{session.endTime}}</label>
+                  </div>
+                  <!--<label>{{session.speaker}}</label>-->
+                  <!--<br>-->
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 Structure -->
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <form [formGroup]="formGroup" (ngSubmit)="createTrack(formGroup.value)">
+          <div class="modal-header">
+            <h4 class="modal-title center">Tracks</h4>
+          </div>
+          <div class="modal-body">
+            <input formControlName="group_name" placeholder="Nome do grupo" id="group_name" type="text" class="validate">
+            <input formControlName="group_description" placeholder="Descrição" id="group_description" type="text" class="validate">
+            <button id="btnCreate" class="btn green waves-effect waves-light">Adicionar</button>
+            <div class="groups">
+              <ul class="collapsible" data-collapsible="accordion" *ngFor="let track of tracks;">
+                <li>
+                  <div class="collapsible-header">
+                        <div class="align-icons">
+                          <label>{{track.name}}</label>
+                          <a class="secondary-content" (click)="removeTrack(track)">
+                            <i class="material-icons red-text">delete</i>
+                          </a>
+                        </div>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+          </div>
+      </form>
+      </div>
+    </div>
+    <!-- Finish Modal Structure -->
+  </div>
+
+</div>
+
+</html>

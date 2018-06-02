@@ -1,0 +1,42 @@
+.container {
+    padding: 3% 3% 3% 3%;
+}
+
+.input-field {
+    color: white;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+    color: #00bfa5 !important;
+}
+
+/* label color */
+label {
+    color: grey !important;
+}
+
+/* label underline focus color */
+.row .input-field input:focus {
+    border-bottom: 1px solid #00bfa5 !important;
+    box-shadow: 0 1px 0 0 #00bfa5 !important;
+}
+
+.text-entry {
+    border-bottom: 1px solid grey !important;
+    box-shadow: 0 1px 0 0 grey !important;
+}
+
+.text-entry.ng-touched.ng-valid {
+    border-bottom: 1px solid #64dd17 !important;
+    box-shadow: 0 1px 0 0 #64dd17 !important;
+}
+
+.text-entry.ng-touched.ng-invalid {
+    border-bottom: 1px solid #d50000 !important;
+    box-shadow: 0 1px 0 0 #d50000 !important;
+}
+
+.card-panel {
+    padding: 3% 3% 3% 3%;
+}

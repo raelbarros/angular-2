@@ -1,0 +1,178 @@
+<html>
+
+<body>
+  <div class="bg grey lighten-4">
+    <app-header></app-header>
+
+    <div class="row container">
+      <!-- Sidebar -->
+      <div class="col s1 m3 l3">
+        <aside>
+          <div id="container-sidebar">
+            <div id="menu">
+              <ul id="slide-out-menu" class="side-nav fixed hide-on-med-and-down">
+                <a href="#" class="brand-logo">
+                  <img src="../../../assets/images/circlelogo.png" class="img-responsive" width="110px" height="auto">
+                </a>
+                <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                    <div>
+                      <li class="menu-list menu-top">
+                        <a href="#">
+                          <i class="material-icons prefix">date_range</i>Eventos</a>
+                        <!-- <a *ngFor="let item of menu">{{item}}</a> -->
+                      </li>
+                    </div>
+
+                    <li class="menu-list">
+                      <a (click)="openPage(ROUTER_MANAGE_EMPLOYEE);">
+                        <i class="material-icons prefix">assignment_ind</i>Gerenciar Funcionários</a>
+                    </li>
+
+                    <!-- <li class="menu-list">
+                          <a href="#">
+                            <i class="material-icons prefix">settings</i>Configurações</a>
+                        </li> -->
+
+                    <li class="menu-list">
+                      <a (click)="openPage(ROUTER_FAQ);">
+                        <i class="material-icons prefix">help</i>Ajuda</a>
+                    </li>
+                  </ul>
+              </ul>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+      <!-- Final Sidebar -->
+
+      <!-- Collapsible FAQ -->
+      <div class="col s11 m9 l9">
+
+        <div class="page-title">
+          <h3 class="title-page">F.A.Q</h3>
+        </div>
+        <hr>
+
+        <div class="collapsible-faq">
+          <ul class="collapsible popout" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header">
+                1. Como adicionar funcionários?</div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
+                  Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="collapsible-header">
+                2. Como editar meu evento?</div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
+                  Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="collapsible-header">
+                3. Lorem</div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="collapsible-header">
+                4. Ipsum</div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="collapsible-header">
+                5. Dolor</div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="collapsible-header">
+                6. Sit</div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="collapsible-header">
+                7. Amet</div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Final Collapsible FAQ -->
+
+        <div class="text-faq">
+          <h6>Não encontrou sua dúvida?</h6>
+          <h6>Entre em contato pelo e-mail
+            <a href="mailto:suporte@b3app.com" target="_top">suporte@b3app.com</a>
+            ou preencha nosso
+            <a data-target="modal-faq" (click)="openModal()" class="modal-trigger"> formulário </a> que entraremos em contato.</h6>
+        </div>
+
+        <!-- Modal Structure -->
+        <form>
+          <div id="modal-faq" class="modal">
+            <div class="modal-content">
+              <h4>Contato</h4>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="name" type="text" class="validate" placeholder="Nome">
+                </div>
+                <div class="input-field col s6">
+                  <input id="last-name" type="text" class="validate" placeholder="Sobrenome">
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="email" type="email" class="validate" placeholder="E-mail">
+                </div>
+                <div class="input-field col s6">
+                  <input id="telephone" type="tel" class="validate" placeholder="Telefone">
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="subject" type="text" class="validate" placeholder="Assunto">
+                </div>
+              </div>
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="message" class="materialize-textarea" placeholder="Mensagem"></textarea>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="btn blue darken-4">Enviar</a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>

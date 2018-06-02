@@ -1,0 +1,54 @@
+html {
+    background: #fafafa;
+    width: auto;
+    min-height: 100%;
+}
+
+.bg {
+    width: auto;
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+.responsive-img {
+    margin-top: 22%;
+}
+
+.card-panel {
+    margin-top: 10%;
+}
+
+.input-field {
+    color: #000;
+}
+
+
+/* label focus color */
+
+.input-field input:focus+label {
+    color: #01579b !important;
+}
+
+
+/* label color */
+
+label {
+    color: #01579b !important;
+}
+
+
+/* label underline focus color */
+
+.row .input-field input:focus {
+    border-bottom: 1px solid #01579b !important;
+    box-shadow: 0 1px 0 0 #01579b !important;
+}
+/* password modal style*/
+
+div#resetPassword.modal.open {
+    text-align: center;
+    height: 18%;
+    width: 60%;
+    
+}
+

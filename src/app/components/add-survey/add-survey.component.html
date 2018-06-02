@@ -1,0 +1,145 @@
+<html>
+<body>
+
+  <div class="bg grey lighten-4">
+
+    <app-header></app-header>
+
+    <div class="row container">
+
+      <div class="col s1 m3 l3">
+        <app-sidebar></app-sidebar>
+      </div>
+
+      <div class="col s12 m12 l9">
+
+        <div class="page-title">
+
+          <h4 class="title-page center">Novo Levantamento de Evento</h4>
+      
+        </div>
+
+        <div class="content card col s12 m12 l12">
+
+          <!-- form levantamento -->
+          <form>
+            <div class="input-field">
+              <i class="material-icons prefix">search</i>
+              <input id="searchName" type="text" class="validate" formControlName="searchName" placeholder="Nome da pesquisa">
+            </div>
+
+            <!-- Modal Trigger -->
+            <div class="card-action left-align">
+              <div class="col s12">
+                <button class="blue darken-3 waves-effect waves-light btn modal-trigger" (click)="openModal()" href="#modalQuestion">Adicionar pergunta</button>
+              </div>
+
+              <!-- Exibição das perguntas já criadas -->
+              <div class="questions-created-container">
+                <!-- Cada pergunta adicionada será exibida dentro desta DIV -->
+              </div>
+
+              <div class="col s12 right-align">
+                <input class="green waves-effect waves-light btn" type="submit" value="Criar levantamento">
+              </div> 
+            </div>
+            
+          </form>
+
+          <!-- Modal Structure -->
+          <div id="modalQuestion" class="modal">
+            <div class="modal-content">
+              <h5 class="title-page center"> Nova Pergunta </h5>
+            </div>
+
+            <div class="left-align">
+              <!-- form perguntas -->
+              <form id="form-questions">
+                <div class="input-field">
+                  <label for="title">Título da pergunta</label>
+                  <input type="text" id="title" name="title">
+                </div>
+
+                <!-- Tipos de perguntas -->
+                <div id="question-options">
+                  <span>Selecione o tipo de pergunta:</span>                       
+                  
+                  <!-- permitido selecionar somente uma resposta -->
+                  <div class="col s12">
+                    <input type="radio" name="questionType" id="oneSelect" value="oneSelect" class="questionType">
+                    <label for="oneSelect" class="black-text">O usuário pode selecionar somente uma resposta</label>
+                  </div>
+                      
+                  <!-- permitido selecionar várias respostas -->
+                  <div class="col s12">
+                    <input type="radio" name="questionType" id="multipleSelect" value="multipleSelect" class="questionType"> 
+                    <label for="multipleSelect" class="black-text">O usuário pode selecionar várias respostas</label>
+                  </div>
+
+                  <!-- permitido selecionar uma classificação -->
+                  <div class="col s12">
+                    <input type="radio" name="questionType" id="evaluation" value="evaluation" class="questionType"> 
+                    <label for="evaluation" class="black-text">O usuário pode selecionar uma classificação</label>
+                  </div>
+
+                  <!-- Permitido digitar uma resposta -->
+                  <div class="col s12">
+                    <input type="radio" name="questionType" id="dissertative" value="dissertative" class="questionType">
+                    <label for="dissertative" class="black-text">O usuário pode digitar um resposta</label>
+                  </div>
+                </div>
+
+                <!-- Opções de respostas -->
+                <div id="answer-options">
+                  <span>Resposta(s):</span>
+                  <div id="answer-block">
+                    <div class="clone col s12">
+                      <input type="text" name="answerOption[0]" class="answerOption" placeholder="Insira uma opção de resposta">
+                    </div>
+                  </div>
+
+                  <!-- Adicionar resposta -->
+                  <div class="col s12">
+                    <button id="clonador" class="blue darken-3 waves-effect waves-light btn">Adicionar resposta</button>
+                  </div>
+                </div>
+
+                <!-- Opcões de gráfico para exibição de resultados -->
+                <div class="col s12" id="chart-options">
+                  <span>Tipo de gráfico de resultados:</span>
+
+                  <!-- Gráfico de torta -->
+                  <div class="col s12">
+                    <input type="radio" name="chartType" id="pieChart" value="pieChart">
+                    <label for="pieChart" class="black-text">Gráfico de torta</label>
+                  </div>
+
+                  <!-- Titulo segundo gráfico -->
+                  <div class="col s12">
+                    <input type="radio" name="chartType" id="horizontalBarChart" value="horizontalBarChart">
+                    <label for="horizontalBarChart" class="black-text">Gráfico de barras horizontal</label>
+                  </div>
+
+                  <div class="col s12">
+                    <input type="radio" name="chartType" id="verticalBarChart" value="verticalBarChart">
+                    <label for="verticalBarChart" class="black-text">Gráfico de barras vertical</label>
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button class="red waves-effect waves-light btn" (click)="closeModal()">Cancelar</button>
+                  <input type="submit" value="Adicionar" id="adicionar-pergunta" class="green waves-effect waves-light btn" (click)="closeModal()">
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

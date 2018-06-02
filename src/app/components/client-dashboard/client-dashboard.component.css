@@ -1,0 +1,89 @@
+html, body {
+    background: #fafafa;
+    width: auto;
+    height: 100%;
+  }
+  
+  .bg {
+    width: auto;
+    min-height: 100vh;
+  }
+
+.side-nav{
+    width: 300px;
+}
+
+.content{
+    padding: 10px;
+    margin: auto auto auto auto;
+    height: 100vw;
+  }
+
+  .page-title {
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.title-page {
+    font-weight: bold;
+    text-align: center;
+}
+
+.collapsible {
+    padding-top: 40px;
+}
+.img-responsive {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
+    padding-bottom: 50px;
+}
+
+@media only screen and (max-width : 992px) {
+    #container {
+      padding-left: 0px;
+    }
+}
+
+.title {
+    position: absolute;
+    top: 12%;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: rgb(54, 54, 54);
+}
+
+.content-text {
+    font-size: 0.9em;
+    padding-top: 10px;
+    color: rgb(124, 124, 124)!important;
+}
+
+.card {
+    position: relative;
+}
+
+.margin {
+    margin: 0 auto;
+}
+
+p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.menu-list {
+    border-bottom: solid 0.5px #f1f1f1;
+}
+
+.menu-top {
+    border-top: solid 0.5px #f1f1f1;
+}
+.modal { 
+    width: 40% !important ;
+    
+} 
